@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+/* Added to offset fixed navbar so page content isn't hidden under it */
+.App-NavBar {
+  padding-top: 130px;
+}
