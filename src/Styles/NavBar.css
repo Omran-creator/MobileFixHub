@@ -1,15 +1,17 @@
 .NavBar{
-background-color: gray;
-height: 120px;
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 0 20px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-position: fixed;
-top: 0;
-z-index: 1000;
+    background: linear-gradient(135deg, #4485da 0%, #6ba8e9 100%);
+    box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.3),
+                0 4px 20px rgba(68, 133, 218, 0.4);
+    height: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 
 .NavBar-logo{
@@ -30,15 +32,69 @@ z-index: 1000;
     text-decoration: none;
 }
 
-
 .NavBar-Links a {
-    /* Your existing styles */
-    transition: all 0.3s ease; /* Smooth transition for all properties */
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
 }
 
 .NavBar-Links a:hover {
     background-color: orange;
     font-weight: bold;
-    font-size: 1.2em; /* Adjust this value to make it bigger */
-    transform: scale(1.05); /* Optional: adds a slight scale effect */
+    font-size: 1.1em;
+    transform: scale(1.05);
+    border-radius: 90px;
+}
+
+/* Dropdown Styles */
+.services-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: linear-gradient(135deg, #4485da 0%, #6ba8e9 100%);
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    z-index: 1001;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+    border-radius: 0;
+}
+
+.dropdown-content a:hover {
+    background-color: orange;
+    transform: scale(1.02);
+    border-radius: 5px;
+}
+
+.services-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Arrow indicator for dropdown */
+.services-dropdown::after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 5px;
+    color: white;
+}
+
+.services-dropdown:hover::after {
+    color: orange;
 }
