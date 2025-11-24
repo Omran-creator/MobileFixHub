@@ -1,0 +1,42 @@
+.accordion {
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background-color:rgb(1, 153, 255);
+  overflow: hidden;
+}
+
+.tab {
+  margin-left: 20px;   /* = tab space */
+  list-style-position: inside;
+}
+
+.accordion button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: var(--card-bg);
+  color: var(--text);
+  outline: none;
+}
+
+.accordion button.active {
+  background-color: var(--primary);
+  color: rgb(8, 0, 0);
+}
+
+.accordion .panel {
+  padding: 0 1rem 1rem 1rem;
+  background-color: #f9f9f9; /* light mode background */
+  color: #222;               /* text color */
+  padding: 1rem;
+  display: none;             /* hidden by default */
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.accordion .panel.show {
+  display: block;
+}

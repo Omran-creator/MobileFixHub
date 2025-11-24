@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/NavBar.css";
 import logo from '../imgs/logo.jpg';
+import { CartButton } from "./CartButton";
+import { useTheme } from "../context/ThemeContext"; // Import useTheme hook
+import '../Styles/theme.css'
 
 export const NavBar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const { darkMode, toggleDarkMode } = useTheme(); // Use the hook to get theme values
 
     // Function to handle service selection and close dropdown
     const handleServiceSelect = () => {
@@ -17,43 +21,55 @@ export const NavBar = () => {
                 <img src={logo} alt="img not found" className="NavBar-logo" />
             </Link>
             <nav className="NavBar-Links">
-                <Link to="/" className="nav-link">Home</Link>
-                <Link to="/About" className="nav-link">About</Link>
+                <Link to="/" >Home</Link>
 
-                {/* Services Dropdown */}
                 <div
                     className="services-dropdown"
                     onMouseEnter={() => setIsDropdownOpen(true)}
                     onMouseLeave={() => setIsDropdownOpen(false)}
                 >
-                    <Link to="/Services" className="nav-link">
+                    <Link className="nav-link">
                         Services
                     </Link>
+
                     {isDropdownOpen && (
                         <div className="dropdown-content">
                             <Link
-                                to="/buying-phones"
-                                onClick={handleServiceSelect} // Add onClick to close dropdown
+                                to="/Repair"
+                                onClick={handleServiceSelect}
                             >
-                                Buying Phones
+                                Repair
                             </Link>
                             <Link
-                                to="/repairing-phones"
-                                onClick={handleServiceSelect} // Add onClick to close dropdown
+                                to="/phones"
+                                onClick={handleServiceSelect}
                             >
-                                Repairing Phones
+                                 Phones
+                            </Link>                            
+                            <Link
+                                to="/Parts"
+                                onClick={handleServiceSelect}
+                            >
+                                Parts
                             </Link>
                             <Link
-                                to="/buying-accessories"
-                                onClick={handleServiceSelect} // Add onClick to close dropdown
+                                to="/accessories"
+                                onClick={handleServiceSelect}
                             >
-                                Buying Accessories
+                                Accessories
                             </Link>
                         </div>
                     )}
                 </div>
 
                 <Link to="/Contact" className="nav-link">Contact</Link>
+
+                <div className="nav-right">
+                    <button className="btn" onClick={toggleDarkMode}>
+                        {darkMode ? "☀️ Light" : "🌙 Dark"}
+                    </button>
+                    <CartButton />
+                </div>
             </nav>
         </div>
     );

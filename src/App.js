@@ -1,42 +1,49 @@
 import React from 'react';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext'; // Adjust path as needed
+import { CartProvider } from './context/CartContext';
+import {NavBar} from './Components/NavBar';
+import {Footer} from './Components/Footer';
+import {Home} from './Pages/Home';
+import {Phones} from './Pages/Phones';
+import {Repair} from './Pages/Repair';
+import {Parts} from './Pages/Parts';
+import {Accessories} from './Pages/Accessories';
+import {ContactUs} from './Pages/ContactUs';
+import Cart from './Pages/Cart';
 import './App.css';
 
-import { NavBar } from './Components/NavBar';
-import { Footer } from './Components/Footer';
-import { Home } from './Pages/Home';
-import { About } from './Pages/About';
-import {Services} from './Pages/Services';
-import {Contact} from './Pages/Contact';
-import {Buying} from './Pages/Buying_Phones';
-import {Reparing} from './Pages/Repairing-Phones';
-import {Accessories} from './Pages/Buying-Accessories';
-
-function App() {
+// Define AppContent component
+const AppContent = () => {
   return (
     <Router>
-
-    <div className="App">
-      
-       <div className='App-NavBar'>        
+      <div className="App">
         <NavBar />
-
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/Home' element={<Home />} />
-          <Route path='/About' element={<About />} />
-          <Route path='/Services' element={<Services />} />
-          <Route path='/Contact' element={<Contact />} />
-          <Route path='/buying-phones' element={<Buying/>} />
-          <Route path='/repairing-phones' element={<Reparing/>} />
-          <Route path='/buying-accessories' element={<Accessories/>} />
-        </Routes>
-        <Footer/>
-       </div>
-
-    </div>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Repair" element={<Repair />} />
+            <Route path="/phones" element={<Phones />} />
+            <Route path="/parts" element={<Parts />} />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/cart" element={<Cart />} />
+            {/* Add other routes as needed */}
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
-}
+};
+
+// Main App component
+const App = () => (
+  <ThemeProvider>
+    <CartProvider>
+      <AppContent />
+    </CartProvider>
+  </ThemeProvider>
+);
 
 export default App;

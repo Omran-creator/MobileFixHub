@@ -40,6 +40,13 @@ html, body {
     gap: 20px;
     margin-bottom: 15px;
 }
+.social-media-container {
+  display: flex;
+  gap: 15px; /* Space between icons */
+  justify-content: center; /* Center the icons */
+  align-items: center;
+}
+
 
 .socialMedia svg {
     font-size: 2em;

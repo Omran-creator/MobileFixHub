@@ -3,6 +3,7 @@ import '../Styles/Home.css';
 import headerimg from '../imgs/header.jpg';
 import section2img from '../imgs/Section-img.png';
 
+
 export const Home = () => {
     return (
         <div className="Home-Header">
@@ -33,6 +34,7 @@ export const Home = () => {
                     />
                 </div>
             </section>
+            <section className='section3'><h1>Your one-step hub for mobile repairs, phones, parts, and accessories.</h1></section>
 
             {/* Section 3 - Services */}
         </div>)}
